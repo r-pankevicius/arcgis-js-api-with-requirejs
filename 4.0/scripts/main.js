@@ -17,10 +17,13 @@ require([
 	'esri/views/MapView',
 	'esri/Graphic',
 	'esri/geometry/Point',
-	'esri/symbols/SimpleMarkerSymbol'
+	'esri/symbols/SimpleMarkerSymbol',
+	'dojo/domReady!'
 ],
 	function (Map, MapView, Graphic, Point, SimpleMarkerSymbol) {
 		'use strict';
+
+		document.getElementById('viewDiv').innerText = '';
 
 		var map = new Map({
 			basemap: "hybrid"

@@ -1,32 +1,31 @@
 require.config({
 	baseUrl: 'scripts',
 	paths: {
-		'esri': 'https://js.arcgis.com/4.12/esri',
-		'dojo': 'https://js.arcgis.com/4.12/dojo',
-		'dojox': 'https://js.arcgis.com/4.12/dojox',
-		'dijit': 'https://js.arcgis.com/4.12/dijit'
+		'esri': 'https://js.arcgis.com/4.13/esri',
+		'dojo': 'https://js.arcgis.com/4.13/dojo',
+		'dojox': 'https://js.arcgis.com/4.13/dojox',
+		'dijit': 'https://js.arcgis.com/4.13/dijit',
+		'@dojo': 'https://js.arcgis.com/4.13/@dojo',
+		'cldrjs': 'https://js.arcgis.com/4.13/cldrjs/dist/cldr',
+		'globalize': 'https://js.arcgis.com/4.13/cldrjs/dist/globalize/dist/globalize',
+		'maquette': 'https://js.arcgis.com/4.13/maquette/dist/maquette.umd',
+		'maquette-css-transitions': 'https://js.arcgis.com/4.13/maquette-css-transitions/dist/maquette-css-transitions.umd',
+		'maquette-jsx': 'https://js.arcgis.com/4.13/maquette-jsx/dist/maquette-jsx.umd',
+		'moment': 'https://js.arcgis.com/4.13/moment',
+		'tslib': 'https://js.arcgis.com/4.13/tslib/tslib'
 	}
 });
-
-// Failed requirejs imports for 4.12:
-// Script error for "@dojo/framework/shim/Promise", needed by: esri/views/MapView
-// Script error for "@dojo/framework/shim/AbortController", needed by: esri/core/promiseUtils
-// Script error for "@dojo/framework/shim/array", needed by: esri/PopupTemplate
-// Script error for "@dojo/framework/shim/Set", needed by: esri/PopupTemplate
-// Script error for "@dojo/framework/shim/Map", needed by: esri/core/Evented
-// Script error for "@dojo/framework/shim/global", needed by: esri/request
-// Script error for "@dojo/framework/shim/WeakMap", needed by: esri/intl/date, esri/intl/number
-// Script error for "maquette", needed by: esri/views/overlay/ViewOverlay
-// Script error for "maquette-css-transitions", needed by: esri/widgets/support/widgetUtils
-// Script error for "maquette-jsx", needed by: esri/widgets/support/jsxFactory
 
 require([
 	'esri/Map',
 	'esri/views/MapView',
-	'esri/Graphic'
+	'esri/Graphic',
+	'dojo/domReady!'
 ],
 	function (Map, MapView, Graphic) {
 		'use strict';
+
+		document.getElementById('viewDiv').innerText = '';
 
 		// Loading sample "Intro to graphics":
 		// https://developers.arcgis.com/javascript/latest/sample-code/intro-graphics/index.html
